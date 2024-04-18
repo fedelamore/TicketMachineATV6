@@ -10,9 +10,11 @@ import java.util.Iterator;
  */
 public class TicketMachine {
 
+
     private int valor;
     private int saldo;
-    private int[] papelMoeda = { 2, 5, 10, 20, 50, 100 };
+    private int[] papelMoeda = { 2, 5, 10, 20, 50, 100, 200 };
+
 
     public TicketMachine(int valor) {
         this.valor = valor;
@@ -26,6 +28,7 @@ public class TicketMachine {
                 achou = true;
             }
         }
+        //O método é chamado caso ache uma ocorrência de papel presente em papelMoeda. Entretanto, a depender do valor do ticket, pode haver a necessidade de inserir mais de um papel moeda.
         if (!achou) {
             throw new PapelMoedaInvalidaException();
         }
@@ -45,7 +48,7 @@ public class TicketMachine {
             throw new SaldoInsuficienteException();
         }
         String result = "*****************\n";
-        result += "*** R$ " + saldo + ",00 ****\n";
+        result += "*** R$" + saldo + ",00 ****\n";
         result += "*****************\n";
         return result;
     }
