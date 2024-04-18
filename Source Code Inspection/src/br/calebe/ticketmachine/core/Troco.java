@@ -79,8 +79,14 @@ class Troco {
         }
 
         @Override
-        public void remove() {
-            next();
+        @Override
+public void remove() {
+    for (int i = 5; i >= 0; i--) {
+        if (troco.papeisMoeda[i] != null) {
+            troco.papeisMoeda[i] = null;
+            break;
         }
+    }
+}
     }
 }
