@@ -28,7 +28,7 @@ public class TicketMachine {
                 achou = true;
             }
         }
-        //O método é chamado caso ache uma ocorrência de papel presente em papelMoeda. Entretanto, a depender do valor do ticket, pode haver a necessidade de inserir mais de um papel moeda.
+        
         if (!achou) {
             throw new PapelMoedaInvalidaException();
         }
