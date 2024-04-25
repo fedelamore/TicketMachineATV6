@@ -15,14 +15,14 @@ public class TicketMachineTest{
 
     @Before
     public void setUp() {
-        ticketMachine = new TicketMachine(10);
+        ticketMachine = new TicketMachine(15);
     }
 
     @Test
     public void testChecarSaldoAposInsercao() {
         try {
-            ticketMachine.inserir(20);
-            assertEquals(30, ticketMachine.getSaldo());
+            ticketMachine.inserir(30);
+            assertEquals(45, ticketMachine.getSaldo());
         } catch (PapelMoedaInvalidaException e) {
             System.out.println(e.getMessage());
         }

@@ -6,13 +6,22 @@ import java.util.Iterator;
  *
  * @author Calebe de Paula Bianchini
  */
-class Troco {
+public class Troco {
 
-    private PapelMoeda[] papeisMoeda;
+    public PapelMoeda[] papeisMoeda;
 
     public Troco(int valor) {
-    papeisMoeda = new PapelMoeda[6];
+    papeisMoeda = new PapelMoeda[7];
+
     int count = 0;
+    while (valor >= 200) {
+        count++;
+        valor -= 200;
+    }
+    papeisMoeda[6] = new PapelMoeda(200, count);
+
+
+    count = 0;
     while (valor >= 100) {
         count++;
         valor -= 100;
@@ -69,7 +78,7 @@ class Troco {
 
         @Override
         public boolean hasNext() {
-            for (int i = 5; i >= 0; i--) {
+            for (int i = 6; i >= 0; i--) {
                 if (troco.papeisMoeda[i] != null) {
                     return true;
                 }
@@ -80,7 +89,7 @@ class Troco {
         @Override
         public PapelMoeda next() {
             PapelMoeda ret = null;
-            for (int i = 5; i >= 0 && ret == null; i--) {
+            for (int i = 6; i >= 0 && ret == null; i--) {
                 if (troco.papeisMoeda[i] != null) {
                     ret = troco.papeisMoeda[i];
                     troco.papeisMoeda[i] = null;
@@ -90,7 +99,7 @@ class Troco {
         }
         @Override
 public void remove() {
-    for (int i = 5; i >= 0; i--) {
+    for (int i = 6; i >= 0; i--) {
         if (troco.papeisMoeda[i] != null) {
             troco.papeisMoeda[i] = null;
             break;
